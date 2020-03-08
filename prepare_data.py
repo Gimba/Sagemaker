@@ -34,7 +34,7 @@ def main():
     # shuffle data
     data = data.sample(frac=1)
 
-    data.to_csv('training_bside_metrics_energy_min(' + str(min) + ')_max(' + str(max) + ').csv', index=None, 
+    data.to_csv('training_bside_metrics_energy_min' + str(min) + '_max' + str(max) + '.csv', index=None,
                 header=None)
 
 
