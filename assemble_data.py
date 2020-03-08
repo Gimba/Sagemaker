@@ -20,7 +20,8 @@ import pandas as pd
 from os.path import exists
 
 
-if not exists('training_data.csv'):
+# if not exists('training_data.csv'):
+if True:
     with open('frame_energies.csv','r') as f:
         energies = []
         flag = False

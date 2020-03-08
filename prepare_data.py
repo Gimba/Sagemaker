@@ -24,7 +24,7 @@ def main():
     data = pd.DataFrame()
     print(data.shape)
     for path in Path('.').rglob('training_data.csv'):
-
+        print(path)
         data = data.append(pd.read_csv(path, header=None, index_col=None))
         print(data.shape)
     min = data.min()
@@ -40,3 +40,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
