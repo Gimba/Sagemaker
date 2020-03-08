@@ -27,8 +27,8 @@ def main():
         print(path)
         data = data.append(pd.read_csv(path, header=None, index_col=None))
         print(data.shape)
-    min = data.min()
-    max = data.max()
+    min = data.min()[0]
+    max = data.max()[0]
     data -= data.min()
     data /= data.max()
     # shuffle data
