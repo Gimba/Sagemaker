@@ -46,21 +46,27 @@ def main(args):
     max = round(data.max()[0],2)
     min_max = list(zip(columns,data.min(),data.max()))
 
-    # write min max values
-    with open('min_max.csv', 'w') as myfile:
-        wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-        wr.writerow(min_max)
 
     data -= data.min()
     data /= data.max()
     # shuffle data
     data = data.sample(frac=1)
     if exclude[0]:
-            data.to_csv('training_bside_metrics_energy_ex_' + ''.join(exclude) + '.csv', index=None,
-                header=None)
+        data.to_csv('training_bside_metrics_energy_ex_' + ''.join(exclude) + '.csv', index=None,
+           header=None)
+        # write min max values
+        with open('min_max_ex_'  + ''.join(exclude) + '.csv', 'w') as myfile:
+            wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+            wr.writerow(min_max)
+
     else:
         data.to_csv('training_bside_metrics_energy.csv', index=None,
                     header=None)
+            # write min max values
+        with open('min_max.csv', 'w') as myfile:
+            wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+            wr.writerow(min_max)
+
 
 
 if __name__ == '__main__':
