@@ -55,9 +55,12 @@ def main(args):
     data /= data.max()
     # shuffle data
     data = data.sample(frac=1)
-
-    data.to_csv('training_bside_metrics_energy_min' + str(min) + '_max' + str(max) + '.csv', index=None,
+    if exclude[0]:
+            data.to_csv('training_bside_metrics_energy_ex_' + ''.join(exclude) + '.csv', index=None,
                 header=None)
+    else:
+        data.to_csv('training_bside_metrics_energy.csv', index=None,
+                    header=None)
 
 
 if __name__ == '__main__':
